@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Namrata!</title>
+    <style>
+        body {
+            background-color: #ffebcd;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 10px;
+        }
+        h1, h2 {
+            color: #ff4081;
+            font-size: 2.5em;
+            margin: 10px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .balloon, .heart {
+            width: 50px;
+            height: 70px;
+            position: absolute;
+            bottom: -100px;
+            animation: floatUp 5s infinite ease-in-out;
+        }
+        .balloon {
+            background-color: red;
+            border-radius: 50% 50% 50% 50%;
+        }
+        .heart {
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+            position: absolute;
+            clip-path: path('M24 3.5c-4.42-4.42-11.58-4.42-16 0-4.42 4.42-4.42 11.58 0 16l8 8 8-8c4.42-4.42 4.42-11.58 0-16z');
+        }
+        @keyframes floatUp {
+            0% { bottom: -100px; opacity: 0; }
+            50% { opacity: 1; }
+            100% { bottom: 100vh; opacity: 0; }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday Namrata Singh! 🎂</h1>
+    <h2>May your day be filled with joy, love, and laughter! ❤️</h2>
+    <h2>Wishing you all the happiness and success in the world! 🎁✨</h2>
+    <script>
+        function createFloatingElement(type) {
+            let element = document.createElement('div');
+            element.classList.add(type);
+            document.body.appendChild(element);
+            element.style.left = Math.random() * window.innerWidth + 'px';
+            element.style.backgroundColor = type === 'balloon' ? `hsl(${Math.random() * 360}, 100%, 50%)` : 'pink';
+            setTimeout(() => element.remove(), 5000);
+        }
+        setInterval(() => createFloatingElement('balloon'), 500);
+        setInterval(() => createFloatingElement('heart'), 800);
+    </script>
+</body>
+</html>
